@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function ex1(x) {
+        if (typeof (x) === "number") {
+
+            return x.toString()
+        }
+        else {
+            return "error"
+        }
+
+    }
+    console.log(ex1(3))
+
+
+    function ex2(t) {
+        let s = 0
+        for (i = 0; i < t.length; i++) {
+            s = s + t[i]
+        }
+        console.log("la somme est  " + s)
+        console.log("la moyenne est " + s / t.length)
+    }
+    ex2([1, 2, 3, 4])
+
+
+    T = [
+        {
+            id: 1,
+            first: 'ahmed',
+            last: 'ben ali',
+            age: 23,
+            email: 'ahmed.benali@gmail.com',
+            address: 'Tunis'
+        },
+        {
+            id: 2,
+            first: 'aziz',
+            last: 'ameri',
+            age: 44,
+            email: 'ahmed.benali@gmail.com',
+            address: 'Tunis'
+        },
+        {
+            id: 3,
+            first: 'khalil',
+            last: 'ben lamine',
+            age: 18,
+            email: 'ahmed.benali@gmail.com',
+            address: 'Tunis'
+        },
+
+    ]
+    function ex4(users, id) {
+        for (i = 0; i < users.length - 1; i++) {
+            if (users[i].id === id) {
+                return users[i]
+            }
+            else {
+                return 'pas d utilisateur avec cet ID '
+            }
+        }
+    }
+
+    console.log(ex4(T, 7))
+
+    function ex5(users) {
+        let tab = []
+        for (let i = 0; i < users.length - 1; i++) {
+            for (let j = i + 1; j < users.length; j++) {
+                if (users[j].age < users[i].age) {
+                    let temp = users[i];
+                    users[i] = users[j];
+                    users[j] = temp;
+
+
+                }
+            }
+        }
+        for (let i = 0; i < users.length; i++) {
+            tab.push(users[i].first)
+        }
+        return tab
+    }
+    console.log(ex5(T))
+
+</script>
+
+</html>
