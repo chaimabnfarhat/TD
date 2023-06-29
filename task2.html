@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function MineurMajeur(persons) {
+        return persons.map(person => {
+            if (person.age >= 18) {
+                return { ...person, status: 'majeur' }
+            } else {
+                return {
+                    ...person, satus: 'mineur'
+                }
+            }
+        })
+    }
+    const persons = [
+        { name: "MONCEF", age: 13 },
+        { name: "BAHIJA", age: 23 },
+        { name: "ALA", age: 18 },
+    ];
+    console.log(MineurMajeur(persons))
+
+
+
+
+    function FormatToArray(str1) {
+        const names = str1.split('-')
+        return names.map(name => {
+            [firstname, lastname] = name.split('&')
+            return { firstname, lastname }
+        })
+    }
+    const str1 = 'ahmed&ferah-moez&saadi-fadhel&gadihi';
+    console.log(FormatToArray(str1))
+
+    function MoodDetect(liste) {
+        return liste.map(person => {
+            if (person.comment.includes("j'aime"))
+                return { name: person.name, etat: "heureux" }
+            else if (person.comment.includes("null"))
+                return { name: person.name, etat: "trist" }
+            else
+                return { name: person.name, etat: "neutre" }
+
+        })
+
+
+
+
+    }
+    const users = [
+        { name: "sarah", comment: "j'aime ce poste <3" },
+        { name: "monya", comment: "le poste est null :( " },
+        { name: "carlos", comment: "salut l'algérie" }]
+    console.log(MoodDetect(users))
+
+
+    function FailedStudent(liste) {
+        const arr = liste.filter(person => typeof (person.note) === "number")
+        arr.sort((a, b) => b.note - a.note)
+        return arr.map(person => {
+
+
+            if (person.note >= 15) {
+
+
+                return { ...person, mention: "bien" }
+            }
+            else {
+                return { ...person, mention: "passable" }
+            }
+
+
+
+        })
+    }
+
+    const etudiants = [
+        { name: "sarah", note: undefined },
+        { name: "monya", note: 7 },
+        { name: "carlos", note: 13 },
+        { name: "fadhel", note: 18 },
+    ]
+    console.log(FailedStudent(etudiants))
+</script>
+
+</html>
